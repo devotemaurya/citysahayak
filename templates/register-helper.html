@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Become a Helper – CitySahayak</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">CitySahayak</h1>
+      <nav class="navbar">
+  <a href="{{ url_for('index') }}">Home</a>
+  <a href="{{ url_for('view_helpers') }}">Search Helpers</a>
+  <a href="{{ url_for('register_form') }}">Become a Helper</a>
+  <a href="{{ url_for('contact') }}">Contact</a>
+  <a href="{{ url_for('login') }}">Login</a>
+</nav>
+
+
+    </div>
+  </header>
+
+  <!-- Registration Form -->
+  <section class="register-section">
+    <h2>Register as a Domestic Helper</h2>
+<form class="register-form" action="/register" method="POST" enctype="multipart/form-data">
+      <label>Full Name:</label>
+      <input type="text" name="name" required />
+
+      <label>Age:</label>
+      <input type="number" name="age" required />
+
+      <label>Phone Number:</label>
+      <input type="tel" name="phone" required />
+
+      <label>Skills:</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="skills" value="Maid" /> Maid</label>
+        <label><input type="checkbox" name="skills" value="Cook" /> Cook</label>
+        <label><input type="checkbox" name="skills" value="Babysitter" /> Babysitter</label>
+        <label><input type="checkbox" name="skills" value="Plumber" /> Plumber</label>
+      </div>
+
+      <label>Availability:</label>
+      <select name="availability" required>
+        <option value="">-- Select --</option>
+        <option value="Morning">Morning</option>
+        <option value="Evening">Evening</option>
+        <option value="Full Time">Full Time</option>
+      </select>
+
+      <label>Upload ID Proof (optional):</label>
+      <input type="file" name="idproof" />
+
+      <button type="submit" class="btn">Submit Registration</button>
+    </form>
+  </section>
+
+</body>
+</html>

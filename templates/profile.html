@@ -1,0 +1,133 @@
+<!-- templates/profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ helper.name }} – Profile | CitySahayak</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0a4d68;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      background-color: #0a4d68;
+      padding: 10px 0;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    .profile-page {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .profile-card {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .profile-card img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 3px solid #0a4d68;
+    }
+
+    .profile-card h2 {
+      margin-bottom: 10px;
+      color: #0a4d68;
+    }
+
+    .profile-card p {
+      margin: 5px 0;
+      font-size: 16px;
+    }
+
+    .profile-card strong {
+      color: #555;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #1ebe5d;
+    }
+
+    .whatsapp-btn svg {
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>CitySahayak</h1>
+  </header>
+
+  <nav class="navbar">
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('view_helpers') }}">Search Helpers</a>
+    <a href="{{ url_for('register_form') }}">Become a Helper</a>
+    <a href="{{ url_for('contact') }}">Contact</a>
+  </nav>
+
+  <main class="profile-page">
+    <div class="profile-card">
+      <img src="{{ url_for('static', filename='uploads/' ~ helper.photo) }}" alt="Helper Photo">
+      <h2>{{ helper.name }}</h2>
+      <p><strong>Age:</strong> {{ helper.age }}</p>
+      <p><strong>Phone:</strong> {{ helper.phone }}</p>
+      <p><strong>Skills:</strong> {{ helper.skills }}</p>
+      <p><strong>Availability:</strong> {{ helper.availability }}</p>
+
+      <!-- ✅ WhatsApp Contact Button -->
+      <a class="whatsapp-btn" target="_blank"
+         href="https://wa.me/91{{ helper.phone | replace(' ', '') }}">
+        <!-- WhatsApp SVG Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+          <path d="M20.52 3.48A12.06 12.06 0 0 0 12 0C5.37 0 0 5.37 0 12a11.94 11.94 0 0 0 1.64 6.02L0 24l6.3-1.64A12.06 12.06 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.23-3.48-8.52zM12 22c-1.75 0-3.42-.45-4.89-1.3l-.35-.2-3.74.97.99-3.65-.23-.37C2.95 15.04 2 13.56 2 12 2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm5.2-7.18c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14s-.73.91-.9 1.1c-.17.18-.33.2-.61.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.4-1.65-1.57-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.33.43-.5.14-.17.19-.29.28-.48.09-.19.04-.36-.02-.5-.06-.14-.64-1.54-.88-2.12-.23-.56-.47-.49-.64-.5-.17 0-.36-.01-.55-.01s-.5.07-.76.36c-.26.29-1 1-1 2.45 0 1.44 1.03 2.84 1.17 3.04.14.2 2.03 3.1 4.92 4.35.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.12.55-.08 1.66-.68 1.9-1.35.23-.67.23-1.24.16-1.36-.07-.12-.26-.18-.54-.32z"/>
+        </svg>
+        Contact on WhatsApp
+      </a>
+    </div>
+  </main>
+
+</body>
+</html>

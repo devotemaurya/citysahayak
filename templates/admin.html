@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard | CitySahayak</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f7f7f7;
+    }
+    header {
+      background-color: #4A90E2;
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+    .dashboard {
+      padding: 30px;
+    }
+    .stats {
+      margin-bottom: 20px;
+    }
+    .stats h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #e8e8e8;
+    }
+    .logout-btn {
+      float: right;
+      margin-top: -50px;
+      background: #e74c3c;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .logout-btn:hover {
+      background: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Admin Dashboard – CitySahayak</h1>
+    <form action="/logout" method="post">
+      <button class="logout-btn" type="submit">Logout</button>
+    </form>
+  </header>
+  
+      <nav class="navbar">
+  <a href="{{ url_for('index') }}">Home</a>
+  <a href="{{ url_for('view_helpers') }}">Search Helpers</a>
+  <a href="{{ url_for('register_form') }}">Become a Helper</a>
+  <a href="{{ url_for('contact') }}">Contact</a>
+  <a href="{{ url_for('login') }}">Login</a>
+</nav>
+
+
+  <div class="dashboard">
+    <div class="stats">
+      <h2>Total Helpers: {{ helpers | length }}</h2>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Phone</th>
+          <th>Skills</th>
+          <th>Availability</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for h in helpers %}
+        <tr>
+          <td>{{ h[0] }}</td>
+          <td>{{ h[1] }}</td>
+          <td>{{ h[2] }}</td>
+          <td>{{ h[3] }}</td>
+          <td>{{ h[4] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

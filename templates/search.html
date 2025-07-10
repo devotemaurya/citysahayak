@@ -1,0 +1,76 @@
+<!-- templates/search.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Search Helpers – CitySahayak</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+
+</head>
+<nav class="navbar">
+  <a href="{{ url_for('index') }}">Home</a>
+  <a href="{{ url_for('view_helpers') }}">Search Helpers</a>
+  <a href="{{ url_for('register_form') }}">Become a Helper</a>
+  <a href="{{ url_for('contact') }}">Contact</a>
+  <a href="{{ url_for('login') }}">Login</a>
+</nav>
+
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">CitySahayak</h1>
+      
+    </div>
+  </header>
+
+  <main class="search-page">
+    <aside class="filters">
+      <h3>Filter Helpers</h3>
+      <label>Category:</label>
+      <select>
+        <option>Maid</option>
+        <option>Cook</option>
+        <option>Babysitter</option>
+        <option>Plumber</option>
+        <option>Electrician</option>
+      </select>
+
+      <label>Availability:</label>
+      <select>
+        <option>Morning</option>
+        <option>Evening</option>
+        <option>Full Time</option>
+      </select>
+
+      <label>Minimum Rating:</label>
+      <select>
+        <option>3 ★</option>
+        <option>4 ★</option>
+        <option>5 ★</option>
+      </select>
+    </aside>
+
+    <section class="helper-results">
+      <h2>Available Helpers</h2>
+      <div class="helper-grid">
+        {% for helper in helpers %}
+  <div class="helper-card">
+    <img src="{{ url_for('static', filename='uploads/' ~ (helper[5] if helper[5] else 'default.jpg')) }}" alt="Helper Photo">
+    <h3>{{ helper[1] }}</h3>
+    <p>Age: {{ helper[2] }}</p>
+    <p>Skills: {{ helper[3] }}</p>
+    <p>Available: {{ helper[4] }}</p>
+    <a href="{{ url_for('profile', helper_id=helper[0]) }}" class="btn">View Profile</a>
+  </div>
+{% endfor %}
+
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

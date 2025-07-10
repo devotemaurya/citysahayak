@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CitySahayak – Find Trusted Domestic Helpers</title>
+
+   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">CitySahayak</h1>
+      <nav class="navbar">
+  <a href="{{ url_for('index') }}">Home</a>
+  <a href="{{ url_for('view_helpers') }}">Search Helpers</a>
+  <a href="{{ url_for('register_form') }}">Become a Helper</a>
+<a href="{{ url_for('contact') }}">Contact</a>
+  <a href="{{ url_for('login') }}">Login</a>
+</nav>
+
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Find Trusted Domestic Helpers Near You</h2>
+      <p>Maid, Cook, Babysitter, Plumber — All Verified. All Nearby.</p>
+<a href="{{ url_for('view_helpers') }}" class="btn">Search Now</a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <h3>Why Choose CitySahayak?</h3>
+    <div class="feature-cards">
+      <div class="feature-card">
+        <h4>🛡 Verified Helpers</h4>
+        <p>Every profile is verified by ID and background checks to ensure your safety and peace of mind.</p>
+      </div>
+      <div class="feature-card">
+        <h4>📍 Location-Based Matching</h4>
+        <p>Get matched with helpers available in your neighborhood for faster and better service.</p>
+      </div>
+      <div class="feature-card">
+        <h4>🧑‍🔧 Skilled & Trusted Workers</h4>
+        <p>Hire experienced maids, cooks, plumbers, babysitters and more — all reviewed by real users.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <h3>What Our Users Say</h3>
+    <div class="testimonial-cards">
+      <div class="testimonial-card">
+        <p>"I found a wonderful nanny for my child within 10 minutes. Safe and reliable!"</p>
+        <h5>– Priya S., Mumbai</h5>
+      </div>
+      <div class="testimonial-card">
+        <p>"The plumber I booked was quick and professional. Highly recommended!"</p>
+        <h5>– Rahul K., Delhi</h5>
+      </div>
+      <div class="testimonial-card">
+        <p>"The verification system is a life-saver. I feel secure hiring helpers now."</p>
+        <h5>– Anita R., Bangalore</h5>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>© 2025 CitySahayak. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="{{ url_for('index') }}">Home</a>
+<a href="{{ url_for('view_helpers') }}">Search</a>
+<a href="{{ url_for('contact') }}">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
